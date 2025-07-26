@@ -21,6 +21,8 @@ Or add to your system configuration:
 }
 ```
 
+Then run `ridibooks` in your terminal. This will install and create Ridibooks desktop entry.
+
 ## Features
 
 - Runs Ridibooks Windows application through Wine

@@ -34,3 +34,10 @@ Or add to your system configuration:
 - The application will be installed to `~/.local/share/ridibooks` on first run
 - Wine prefix is configured with Korean locale settings
 - Includes font replacements for better readability
+
+## Uninstall
+
+```
+rm -rf ~/.local/share/applications/wine/Programs/Ridibooks.desktop
+rm -rf ~/.local/share/ridibooks
+```

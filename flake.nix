@@ -139,9 +139,6 @@
             fi
             EOF
             chmod +x $out/bin/ridibooks
-
-            # Copy the desktop entry from makeDesktopItem
-            cp -r ${desktopItem}/share/applications $out/share/
           '';
           meta = with lib; {
             description = "E-book reader and digital bookstore";

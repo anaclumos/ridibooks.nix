@@ -26,23 +26,10 @@
         "url": "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks%20Setup%200.11.6.exe"
       }
     },
-    "ridibooks-icon": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-t0rLROTqlT4p/LxjcytxvOt631BJT3z8hYUHCOJNOxU=",
-        "type": "file",
-        "url": "https://ridicorp.com/wp-content/uploads/2025/07/%EB%A6%AC%EB%94%94.png"
-      },
-      "original": {
-        "type": "file",
-        "url": "https://ridicorp.com/wp-content/uploads/2025/07/%EB%A6%AC%EB%94%94.png"
-      }
-    },
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "ridibooks-exe": "ridibooks-exe",
-        "ridibooks-icon": "ridibooks-icon"
+        "ridibooks-exe": "ridibooks-exe"
       }
     }
   },

@@ -5,31 +5,15 @@
       url = "https://viewer-ota.ridicdn.net/pc_electron/Ridibooks%20Setup%200.11.6.exe";
       flake = false;
     };
-    ridibooks-icon = {
-      url = "https://ridicorp.com/wp-content/uploads/2025/07/%EB%A6%AC%EB%94%94.png";
-      flake = false;
-    };
   };
 
-  outputs = { self, nixpkgs, ridibooks-exe, ridibooks-icon }: {
+  outputs = { self, nixpkgs, ridibooks-exe }: {
     packages.x86_64-linux =
       let pkgs = import "${nixpkgs}" { system = "x86_64-linux"; };
 
       in with pkgs; {
         default = self.packages.x86_64-linux.ridibooks;
-        ridibooks = let
-          desktopItem = makeDesktopItem {
-            name = "ridibooks";
-            exec = "ridibooks %U";
-            icon = "ridibooks";
-            desktopName = "Ridibooks";
-            genericName = "E-Book Reader";
-            comment = "E-book reader and digital bookstore";
-            categories = [ "Office" "Viewer" ];
-            mimeTypes = [ "x-scheme-handler/ridibooks" ];
-            startupWMClass = "ridibooks.exe";
-          };
-        in stdenv.mkDerivation rec {
+        ridibooks = stdenv.mkDerivation rec {
           pname = "ridibooks";
           version = "0.11.6";
           src = ridibooks-exe;
@@ -45,8 +29,7 @@
           ];
 
           installPhase = ''
-            mkdir -p $out/bin $out/share/icons/hicolor/scalable/apps $out/share/applications $out/share/ridibooks
-            cp ${ridibooks-icon} $out/share/icons/hicolor/scalable/apps/ridibooks.png
+            mkdir -p $out/bin $out/share/applications $out/share/ridibooks
             cp ${src} $out/share/ridibooks/Ridibooks_Setup.exe
             cat > $out/bin/ridibooks <<EOF
             #!/usr/bin/env bash
